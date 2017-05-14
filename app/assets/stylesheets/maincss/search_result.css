@@ -1,0 +1,17 @@
+.content_panel{
+    margin-top: 15px;
+    box-shadow: 5px 5px 5px lightgray;
+
+}
+
+.navbar_below_searchbox{
+    margin-top: 50px;
+}
+
+.navtitle_content{
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    text-align: center; 
+   
+}

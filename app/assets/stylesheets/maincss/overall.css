@@ -1,0 +1,29 @@
+body{
+    /*background-color: #F2F2F2; */   
+}
+
+.navbar-widthsize {
+    
+    width:150px;
+}
+
+.backgroud_upper_intro{
+    padding-top: 10em; padding-bottom: 50px; text-align: center;
+    background : url("/OGA1EQ0.jpg");
+    background-size: cover;
+    background-position : center center;
+}
+
+.intro_logo{
+    width:70%;
+    height: auto;
+}
+
+.long_logo{
+    width:400px;
+    padding-top: 20px;
+}
+
+.mapheight{
+    height:350px;
+}

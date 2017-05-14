@@ -1,0 +1,235 @@
+<!-- detail program  : 프로그램 누를시 상세 보기 페이지 (view 단위 페이지 생성한다) 
+    이는 detail_controller 도 생성해야하며
+    config 는 실행해야할 화면을 보여준다?
+    
+    -->
+
+<!-- 일반 사용자 -->    
+<ul class="nav nav-tabs">
+             <li role="presentation" class="active" style="font-weight:bold;"><a href="#">일반사용자</a></li>
+              <li role="presentation"><a href="" data-toggle="modal" data-target="#myModal" >기업사용자</a></li>
+</ul>
+
+<!-- 상단바 -->    
+
+<div class="container">
+    <div class="row">
+        <div style="text-align: center;">
+    		<h1 style="font-size: 2em; margin: 0;">
+    			<a href ="/??"><img class = "long_logo" src="/longlogo-04.png" ></a>
+    		</h1>
+        </div> 
+    </div>
+</div>
+
+<!-- 여기부터 쭉 -->
+<!-- 클릭후 원하는 이름 적는다 -->
+<div class = "container">
+    
+    
+    <div class = "container">
+        <div id = a>
+            <div class="row thumbnail backgroundcolor">
+                <div class="panel-heading col-md-12" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                <div class="row">
+                  <div id = "a" style="padding-bottom : 0px">
+                  <div class = "col-md-4">
+                    <span class = "detailtitle"><%=@pre_title%></span>
+                    <span style = "color : #FFF">  숲태교  </span>
+                  </div>
+                  <div class = "col-md-2 col-md-offset-6">
+                    <span class=" glyphicon glyphicon-heart-empty pcitogram" id="like" onclick="like_click('<%=@pre_location %>','prenatal')"></span>
+                  </div>
+                  
+                </div>
+                  
+                </div>
+                <div class="row">
+                   <div>
+                  <span class = "detailstatus">조회수 : <%=@view_count%> 찜한수 : <span id="like_count"><%=@like%></span> </span>
+                </div>
+                  
+                </div>
+                </div>
+                
+
+                
+                <div id = "b">
+                <div class="row rowpadding rowpaddingplus">
+                    <div class="col-sm-4 thumbnail">
+                        <img id = mainpic src=<%=@main_pic%> alt="rss feed" />
+                    </div>
+                     <div class="col-sm-6" style = "padding-left : 50px">
+                            <ul class="a liicon">
+                              <br>
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">이름 :</span>
+                                  <span class = "p_detail"><%=@pre_title%></span>
+                              </li>
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">주소 : </span>
+                                  <span class = "p_detail"><%=@pre_location%></span>
+                              </li>
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">신청가능 여부 : </span>
+                                  <span class = "p_detail"><%=@pre_is_apply%></span>
+                                  
+                              </li>
+                              
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">총 활동 시간 :</span>
+                                  <span class = "p_detail">3시간</span>
+                              </li>
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">활동 시간 : </span>
+                                  <span class = "p_detail"><%=@pre_education_time%></span>
+                              </li>
+                              <li class = "liicon">
+                                  <span class = "p_detail" style = "font-weight : bold">링크 : </span>
+                                  <span class = "p_detail"><a href='<%=@pre_link%>'>신청하러가기</a></span>
+                              </li>
+                              
+                            </ul>
+                    </div>
+                </div>
+                <br>
+                <div class = "row rowpadding">
+                    <div class = "col-sm-12">
+                        <ul class = "liicon">
+                            <li class = "liicon">
+                                <span class = "p_detail" style = "font-weight : bold">내용 : </span>
+                                <span class = "p_detail"><%=@pre_content%></span></span>
+                            </li>
+                            
+                            
+                        </ul>
+                        <br>
+                        <div class="rowpadding">
+                         <div id="map" class="col-md-12 mapheight"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class = "row">
+                    <div class="col-md-offset-4 col-md-4"></div>
+                    <div class="col-md-offset-5 col-md-5">
+                          
+                          <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">신청하기</button>-->
+                        
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="cont_tabs_login">
+                                <ul class='ul_tabs'>
+                                    <li class="active"><a href="#" onclick="sign_in()">신청서 작성</a>
+                                    <span class="linea_bajo_nom"></span>
+                                    </li>
+                                
+                                </ul> 
+                              </div>
+                            
+                                <form>
+                                    <div class="cont_text_inputs">
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이름" name="apply_name" />
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="핸드폰번호" name="apply_phone" />
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이메일" name="apply_email" />
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="신청인원" name="apply_number" />
+                                     
+                                     
+                                     
+                                     <div class="row detail_content2" id = "sandbox-container"  >
+              
+                                        <div class="form-group col-md-5">
+                                              <div class="input-group date">
+                                                <input type="text" class="form-control" name="date" placeholder="날짜"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                              </div>
+                                        </div>
+                                         <div class="col-md-7 cont_btn">
+                                             <button class="btn_sign">신청</button>
+                                             <button class="btn_sign">취소</button>
+                                              
+                                         </div>
+                                    
+                                  </div>
+                                    
+                                    
+                                    <!--<a href="#" class="link_forgot_pass d_block" >Forgot Password ?</a>-->    
+                                    <div class="terms_and_cons d_none">
+                                    <p><input type="checkbox" name="terms_and_cons" /> <label for="terms_and_cons">Accept  Terms and Conditions.</label></p>
+                                    
+                                    </div>
+                                    </div>
+
+                                  
+                              
+                                </form>
+                             
+                              <div class="modal-footer">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-4 col-md-4"></div>
+                   
+                </div>
+                
+                
+            </div>
+        </div>
+        </div>
+        </div>
+        
+    </div>
+ 
+
+</div>
+
+
+<div id='longitude_t' class='hidden'><%=@longmap%></div>
+<div id='latitude_t' class='hidden'><%=@latmap%></div>
+<div id='keyword' class='hidden'><%=@keyword%></div>
+<div id='address_t' class='hidden'><%=@address%></div>
+
+
+
+
+<div id="myModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="width:500px">
+      
+      <div class="modal-body">
+            <section id="login">
+            
+            <div class="row">
+                <div class="form-wrap">
+                <h1>환영합니다. 담당자님</h1>
+                    <form role="form" action="/intro_dashboard" method="post" id="login-form" autocomplete="off">
+                        <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input name="username" id="username" class="form-control" placeholder="기관 ID">
+                        </div>
+                        <div class="form-group">
+                        <label for="key" class="sr-only">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="비밀번호">
+                        </div>
+                        <div class="checkbox">
+                        <span class="character-checkbox" onclick="showPassword()"></span>
+                        <span class="label">Show password</span>
+                        </div>
+                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+                    </form> 
+                <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
+                <hr>
+                </div>
+            </div> <!-- /.row -->
+            
+            </section>
+      </div>
+      
+    </div>
+
+  </div>
+</div>

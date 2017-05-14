@@ -1,0 +1,271 @@
+
+
+
+<body style="background:rgba(0,0,0,0.04)">
+<ul class="nav nav-tabs">
+             <li role="presentation" class="active"><a href="#" style="font-weight: bold;background-color: #90b236; color:white">일반사용자</a></li>
+              <li role="presentation"><a href="" data-toggle="modal" data-target="#myModal" >기업사용자</a></li>
+              
+</ul>
+    
+     <!--   <div>   상단 바    </div>-->
+<div class="backgroud_upper_intro">
+		<div class="row">
+		    <div class="row">
+		        <h1 style="font-size: 2em; margin: 0;">
+        		    <div class="col-md-offset-4 col-md-4">
+        		        <!--<img class="intro_logo" src="https://attach.s.op.gg/logo/20170213140201.7afd04243fd9e93afe005ca49d89d21e.png" title="탈것" alt="OP.GG Logo (탈것)">
+        		        -->
+        		        <a href ="/??"><img class = "intro_logo" src = "/logo-03.png"></a>
+        		    </div>
+		    </h1>
+		        
+		    </div>
+		     <form action="/search" method="GET">
+		     <div class="row">
+		         <div class="btn-group" role="group">
+                    
+                      <div class="col-md-9 col-md-offset-2 search_input" id="serach_input_box">
+                          <div id="custom-search-input" class="col-md-11">
+                                      <div class="input-group col-md-12">
+                                          <input type="text" class=" search-query form-control input-lg" placeholder="기관명 / 위치(ex.전주시)" name="query">
+                                          <span class="input-group-btn">
+                                              <button class="btn btn-lg" type="submit">
+                                                  <span class=" glyphicon glyphicon-search"></span>
+                                              </button>
+                                          </span>
+                                      </div>
+                          </div>
+                          <button class="btn btn-success col-md-1 search_input" type="submit" >  검 색 </button> 
+                         
+                      </div>
+                </div>
+		     </div>
+		    
+		</div>
+		
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <button class="btn btn-primary normal_btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="float:left; margin-left:20px">
+                                          상세검색
+                </button>
+                <div class="collapse col-md-10 col-md-offset-1 detail_view" id="collapseExample" style="z-index:1;position: absolute;">
+                  <div class="card">
+                    
+                    <div class="row detail_content col-md-12">
+                        <label class="option_name width_arrangement">대상</label>
+                        <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                                <input id="baby_chbox" class="styled" type="checkbox" name="target[]" value="baby_chbox">
+                                <label for="baby_chbox">
+                                    유아
+                                </label>
+                        </div>
+                        <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                                <input id="prenatal_chbox" class="styled" type="checkbox" name="target[]" value="prenatal">
+                                <label for="prenatal_chbox">
+                                    임산부
+                                </label>
+                        </div>
+                        <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                                <input id="elementry_chbox" class="styled" type="checkbox" name="target[]" value="elementry">
+                                <label for="elementry_chbox">
+                                    초등학생
+                                </label>
+                        </div>
+                        <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                                <input id="teenager_chbox" class="styled" type="checkbox" name="target[]" value="teenager">
+                                <label for="teenager_chbox">
+                                    중,고등학생
+                                </label>
+                        </div>
+                        <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                                <input id="normal_chbox" class="styled" type="checkbox" name="target[]" value="normal">
+                                <label for="normal_chbox">
+                                    일반
+                                </label>
+                        </div>
+                
+              
+                    </div>
+            
+            <div class="row detail_content col-md-12" >
+              <label class="option_name width_arrangement">카테고리</label>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="forestlodge_chbox" class="styled" type="checkbox" name="category[]" value="forestlodge">
+                        <label for="forestlodge_chbox">
+                            휴양림
+                        </label>
+                </div>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="arboretum_chbox" class="styled" type="checkbox" name="category[]" value="arboretum">
+                        <label for="arboretum_chbox">
+                            수목원
+                        </label>
+                </div>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="Ecovilage_chbox" class="styled" type="checkbox" name="category[]" value="ecovilage">
+                        <label for="Ecovilage_chbox">
+                            산촌생태마을
+                        </label>
+                </div>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="mountainpro_chbox" class="styled" type="checkbox" name="category[]" value="mountainpro">
+                        <label for="mountainpro_chbox">
+                            산림교육
+                        </label>
+                </div>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="prenataledu_chbox" class="styled" type="checkbox" name="category[]" value="prenataledu">
+                        <label for="prenataledu_chbox">
+                            숲 태교
+                        </label>
+                </div>
+                <div class="checkbox checkbox-primary checkbox-inline width_arrangement">
+                        <input id="mountain_explain_chbox" class="styled" type="checkbox" name="category[]" value="mountain_explain">
+                        <label for="mountain_explain_chbox">
+                            숲 해설
+                        </label>
+                </div>
+                
+              
+            </div>
+            
+
+              <div class="row detail_content col-md-12">
+              <label class="option_name width_arrangement">날짜</label>
+              
+                <div id="sandbox-container" class="form-group" style="float:left; width:200px">
+                    <div class="input-group date">
+                  <input type="text" class="form-control" name="date"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                </div>
+            
+
+                <button class="btn btn-lg btn-primary normal_btn" type="submit" style="float:right; margin-right:20px">
+                    <span class=" glyphicon glyphicon-search"></span>
+                </button>
+              
+            
+                  
+              
+              </div>
+              
+            
+          </div>    
+        </div> 
+            </div>
+        </div>
+        </form>
+</div>    
+
+
+
+
+<!-- serach bar -->
+<div class="container">
+    <div class="row">
+         
+         
+        
+    </div>
+    <div class="row">
+    
+    <div class="row recomend_view">
+    <h2> 추천 프로그램 </h2> 
+    <br>
+      <% 
+        number =1
+        @recommend_program.each do|program|
+          
+        url = 'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q='
+        url += program.pro_name
+        url += '&output=json&result=1'
+        
+        #'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q=다음카카오&output=json'
+        
+        url = url.force_encoding('binary')
+        url=WEBrick::HTTPUtils.escape(url)
+        
+        image = JSON.parse(open(url).read)
+        #puts image
+
+        main_pic = image["channel"]["item"][0]["image"]
+      
+      
+      %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail thumnail_bord">
+          <div class = "color-swatch brand-primary col-md-1" style="background-color:#90b236;"><span class="recomend_nubmer_font"><%=number%></span></div>
+          <img class = "col-md-12" src="<%=main_pic%>" alt="..." style="height:200px; width:100%;" >
+          <div class="caption">
+            <h3><%=program.pro_name%></h3>
+            
+          </div>
+        </div>
+      </div>
+      <%
+          number+=1
+      end%>
+      
+      
+     
+      
+    </div>
+    
+  
+    
+    
+    
+</div>
+
+<div class="container">
+    
+
+    
+</div>
+
+
+
+</body>
+
+
+<div id="myModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="width:500px">
+      
+      <div class="modal-body">
+            <section id="login">
+            
+            <div class="row">
+                <div class="form-wrap">
+                <h1>환영합니다. 담당자님</h1>
+                    <form role="form" action="/intro_dashboard" method="post" id="login-form" autocomplete="off">
+                        <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input name="username" id="username" class="form-control" placeholder="기관 ID">
+                        </div>
+                        <div class="form-group">
+                        <label for="key" class="sr-only">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="비밀번호">
+                        </div>
+                        <div class="checkbox">
+                        <span class="character-checkbox" onclick="showPassword()"></span>
+                        <span class="label">Show password</span>
+                        </div>
+                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+                    </form> 
+                <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
+                <hr>
+                </div>
+            </div> <!-- /.row -->
+            
+            </section>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,114 @@
+
+#a{
+    padding-top : 10px;
+    padding-bottom: 20px;
+}
+
+
+#b{
+    padding-top : 50px;
+    padding-bottom: 20px;
+}
+
+.rowpadding{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.rowpaddingplus{
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+
+.ul.a {
+    list-style-type: circle;
+}
+
+p.p_detail {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size : 20px;
+}
+
+.p_detail {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size : 20px;
+}
+
+#mainpic {
+   width: 400px;
+   height: 250px;
+}
+
+.backgroundcolor{
+    /*background-image: url("/tex2.jpg");*/
+    background-color :  rgba(255, 255, 255, 0.7);
+    
+}
+
+body{
+    background-image: url("/tex2.jpg");
+}
+
+.detailtitle {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.2;
+    color : #FFF;
+    padding-left : 10px;
+}
+
+.detailtitleright {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    line-height: 1.2;
+    color : #FFF;
+    padding-left : 800px;
+}
+
+.likebtn{
+    color : #385341;
+    background-image : linear-gradient(-50deg, #CFD8DC , #E0F2F1);
+    float : right;
+
+}
+
+.detailstatus {
+    color : #FFF;
+    font-size : 20px;
+    margin-right:10px;
+    float:right;
+}
+
+ul.liicon { padding-left:20px; list-style:none; }
+li.liicon { margin-bottom:20px; }
+li.liicon:before{
+    font-family: 'FontAwesome';
+    content: "\f1bb";
+    margin:0 5px 0 -15px;
+}
+
+.pcitogram{
+    cursor:pointer;
+    margin-right :10px;
+    font-size : 30px;
+    color:white;
+    float : right;
+    background-color:#42925d;
+}
+
+.pcitogram_full_heart{
+    
+    cursor:pointer;
+    margin-right :10px;
+    font-size : 30px;
+    color:red;
+    float : right;
+    background-color:#42925d;
+}
+
+

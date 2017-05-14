@@ -1,0 +1,116 @@
+
+    <nav class="backgroud_upper_intro navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/??"><img src="longlogo-04.png" href="/??" width="131px" height="35px" alt="OP.GG Logo (탈것)" ></a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form class="form-inline mt-2 mt-md-0 ml-auto">
+          <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+          <a class="navbar-brand" href="/dashboard4">환영합니다! <%=session[:institute_name]%>담당자님</a></a>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/intro_dashboard">전체 프로그램현황 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/booker_check">날짜별 예약인원 및 예약승인 하러가기</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">캘린더로 보는 예약가능날짜 설정하기</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard4">계정관리</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/??">로그아웃</a>
+            </li>
+          </ul>
+        </nav>
+
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+   <p>
+<%@d.each do |data|    
+                  @datas=data%>
+
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+ <%=@datas%>
+  </a>
+<%end%>
+</p>
+<form action="/dashboard5" method="get">
+<div class="collapse" id="collapseExample">
+  <div class="card card-block">
+    <div class="month"> 
+  <ul>
+    <li class="next">&#10095;</li>
+    <li>5월 <br>
+      <span style="font-size:18px">야호!숲으로가자</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Su</li>
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+</ul>
+
+<ul class="days"> 
+  <li><span class="lastmonth">30</span></li>
+  <li>1<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check1" value="1"></label></li>
+  <li><span class="active">2<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check2" value="1"></label><span></li>
+  <li>3<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check3" value="1"></label></li>
+  <li>4<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check4" value="1"></label></li>
+  <li>5<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check5" value="1"></label></li>
+  <li>6<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check6" value="1"></label></li>
+  <li>7<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check7" value="1"></label></li>
+  <li>8<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check8" value="1"></label></li>
+  <li>9<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check9" value="1"></label></li>
+  <li>10<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check10" value="1"></label></li>
+  <li>11<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check11" value="1"></label></li>
+  <li>12<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check12" value="1"></label></li>
+  <li>13<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check13" value="1"></label></li>
+  <li>14<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check14" value="1"></label></li>
+  <li>15<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check15" value="1"></label></li>
+  <li>16<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check16" value="1"></label></li>
+  <li>17<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check17" value="1"></label></li>
+  <li>18<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check18" value="1"></label></li>
+  <li>19<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check19" value="1"></label></li>
+  <li>20<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check20" value="1"></label></li>
+  <li>21<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check21" value="1"></label></li>
+  <li>22<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check22" value="1"></label></li>
+  <li>23<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check23" value="1"></label></li>
+  <li>24<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check24" value="1"></label></li>
+  <li>25<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check25" value="1"></label></li>
+  <li>26<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check26" value="1"></label></li>
+  <li>27<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check27" value="1"></label></li>
+  <li>29<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check29" value="1"></label></li>
+  <li>30<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check30" value="1"></label></li>
+  <li>31<label class="form-check-label"><input type="checkbox" class="form-check-input" name="check31" value="1"></label></li>
+</ul>
+<div>
+   <button class="btn btn-outline-success" type="submit" style="margin-left:420px">예약불가 결정확인</button>
+  </div>
+  </div>
+</div>
+</form>
+        </main>
+      </div>
+    </div>
+

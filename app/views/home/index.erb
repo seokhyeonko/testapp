@@ -1,0 +1,318 @@
+<div class="row">
+                    <div class="panel content_panel">
+                        <div class="panel-heading" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                        <font style="color:white; font-weight:bold; font-size:20px">숲 해설</font>
+                        </div>
+                        <div id="explain_page">
+                        <% if @mountain_explain_arr!=nil 
+                        count = 0 
+                        @mountain_explain_arr.each do|mountain_ex|
+                        
+                        
+                        if count===10
+                          break
+                        
+                        end
+                        
+                        count = count + 1
+                        %>
+                        <div class="panel-body">
+                         <div class="data_title">
+                             
+                             <%= link_to mountain_ex.getFacilityName, {:controller => "detail", :action => "detail_explanation", 
+                                 :facility => mountain_ex.getFacility(), :facility_name => mountain_ex.getFacilityName(),
+                                 :address => mountain_ex.getAddress(), :management_period => mountain_ex.getManagementPeriod(),
+                                 :tel => mountain_ex.getTel(), :join_method => mountain_ex.getTarget()}%>
+                             <span>조회수 : 100</span>
+                         </div>
+                         <div class="data_meta">
+                              <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_ex.getFacilityName%></font></span>
+                              <span>장소 : <%=mountain_ex.getAddress%></span>
+                              <span>연락처 <%=mountain_ex.getTel%></span>
+                         </div>
+                         <div class="data_content">
+                              <span>숲 해설 프로그램</span>
+                         </div>
+                        
+                        </div>
+                        <% end %>
+                        <% end %>
+                        
+                        </div>
+                        
+                        
+                        <%if @mountain_explain_size===0%>
+                        <div class="panel-body">
+                        <div class="data_meta"></div>
+                        <div class="data_content"><span>데이터가 존재하지 않습니다!</span></div>
+                        </div>
+                        <%else %>
+                        <div class="panel-footer">
+                        <div style="text-align: center;">
+                        <% for i in 1..(@mountain_explain_size/10)+1 %>
+                        <a onclick = "program_footer_clicked(this.id,'mountain_explain',<%=i%>)" style="margin-right = 2px" id="<%="explain".concat(i.to_s)%>"><%= i %></a>
+                        
+                        <%end%> 
+                        </div>
+                        </div>
+                        <%end%>
+                    
+                    </div>
+                
+                <div class="panel content_panel">
+                    <div class="panel-heading" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                    <font style="color:white; font-weight:bold; font-size:20px">산촌생태 마을</font>
+                    </div>
+                    <div id="ecovilage_page">
+                    <% if @ecovilage_arr!=nil 
+                    count = 0 
+                    @ecovilage_arr.each do|eco|
+                    
+                    
+                    if count===10
+                      break
+                    
+                    end
+                    
+                    count = count + 1
+                    %>
+                    <div class="panel-body">
+                    <div class="data_title">
+                    
+                    <%= link_to eco.getName(), {:controller => "detail", :action => "detail_echo_village", 
+                     :village_name => eco.getName(), :address => eco.getAddress(),
+                     :program_hash => eco.getAllProgram(), :village_code => eco.getVillageCode(),
+                     :x => eco.getX(), :y => eco.getY()}%>
+                    <span>조회수 : 100</span>
+                    </div>
+                    <div class="data_meta">
+                    <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=eco.getName%></font></span>
+                    <span>장소 : <%=eco.getAddress%></span>
+                    <span>연락처: 없음</span>
+                    </div>
+                    <div class="data_content">
+                    <span>산촌 생태마을 정보</span>
+                    </div>
+                    
+                    </div>
+                    <% end %>
+                    <% end %>
+                    
+                    </div>
+                    
+                    
+                    <%if @ecovilaage_size===0%>
+                    <div class="panel-body">
+                    <div class="data_meta"></div>
+                    <div class="data_content"><span>데이터가 존재하지 않습니다!</span></div>
+                    </div>
+                    <%else %>
+                    <div class="panel-footer">
+                    <div style="text-align: center;">
+                    <% for i in 1..(@ecovilaage_size/10)+1 %>
+                    <a onclick = "program_footer_clicked(this.id,'ecovilage',<%=i%>)" style="margin-right = 2px" id="<%="ecovilage".concat(i.to_s)%>"><%= i %></a>
+                    
+                    
+                    <%end%> 
+                        </div>
+                        </div>
+                        <%end%>
+                </div>
+                
+                <div class="panel content_panel">
+                    <div class="panel-heading" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                    <font style="color:white; font-weight:bold; font-size:20px">숲 태교</font>
+                    </div>
+                    <div id="prenatal_page">
+                    <% if @prenatal_arr!=nil 
+                    count = 0 
+                    @prenatal_arr.each do|prenatal|
+                    
+                    
+                    if count===10
+                      break
+                    
+                    end
+                    
+                    count = count + 1
+                    %>
+                    <div class="panel-body">
+                    <div class="data_title">
+                    
+                    <%= link_to prenatal.getTitle(), {:controller => "detail", :action => "detail_prenatal", 
+                         :title  => prenatal.getTitle(), :location  => prenatal.getLocation(),
+                         :content   => prenatal.getContent(), :is_apply  => prenatal.getIsApply(),
+                         :education_time  => prenatal.getSpendTime(), :link   => prenatal.getLink(),
+                         :entry_fee   => prenatal.getEntryFee(), :education_time_string  => prenatal.getEducationTimeString(),
+                         :year   => prenatal.getYear(),:month   => prenatal.getMonth(), 
+                         :day  => prenatal.getDay(), :education_date   => prenatal.getEducationDate()}%>
+                    <span>조회수 : 100</span>
+                    </div>
+                    <div class="data_meta">
+                    <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=prenatal.getEducationDate%></font></span>
+                    <span>장소 :  <%=prenatal.getLocation%></span>
+                    <span>연락처: 홈페이지 방문 필요</span>
+                    </div>
+                    <div class="data_content">
+                    <span><%=prenatal.getContent()%></span>
+                    </div>
+                    
+                    </div>
+                    <% end %>
+                    <% end %>
+                    
+                    </div>
+                    
+                    
+                    <%if @prental_size===0%>
+                    <div class="panel-body">
+                    <div class="data_meta"></div>
+                    <div class="data_content"><span>데이터가 존재하지 않습니다!</span></div>
+                    </div>
+                    <%else %>
+                    <div class="panel-footer">
+                    <div style="text-align: center;">
+                    <% for i in 1..(@prental_size/10)+1 %>
+                    <a onclick = "program_footer_clicked(this.id,'ecovilage',<%=i%>)" style="margin-right = 2px" id="<%="ecovilage".concat(i.to_s)%>"><%= i %></a>
+                    
+                    
+                    <%end%> 
+                        </div>
+                        </div>
+                        <%end%>
+                </div>
+                
+                <div class="panel content_panel">
+                    <div class="panel-heading" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                    <font style="color:white; font-weight:bold; font-size:20px">휴양림</font>
+                    </div>
+                    <div id="forest_lodge_page">
+                    <% if @forestlodge_arr!=nil 
+                    count = 0 
+                    @forestlodge_arr.each do|lodge|
+                    
+                    
+                    if count===10
+                      break
+                    
+                    end
+                    
+                    count = count + 1
+                    %>
+                    <div class="panel-body">
+                    <div class="data_title">
+                    
+                    <%= link_to lodge.getName(), {:controller => "detail", :action => "detail_lodge", 
+                     :name   => lodge.getName(), :state   => lodge.getState(),
+                     :lodage_classification    => lodge.getLodage_classification(), :size  => lodge.getSize(),
+                     :available_people   => lodge.getAvailPeople(), :enterence_fee   => lodge.getEnterenceFee(),
+                     :is_stay    => lodge.getIsStay(), :major_facilities   => lodge.getMajroFacilities(),
+                     :address    => lodge.getAddress(),:management   => lodge.getManagement(), 
+                     :tel   => lodge.getTel(), :homepage_add   => lodge.getHompageAddr(),
+                     :latitude   => lodge.getLatitude(), :longitude   => lodge.getLongtitude(),
+                     :data_standard_date  => lodge.getDataStandardDate}%>
+                    <span>조회수 : 100</span>
+                    </div>
+                    <div class="data_meta">
+                    <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=lodge.getManagement%></font></span>
+                    <span>장소 : <%=lodge.getAddress%></span>
+                    <span>연락처: <%=lodge.getTel%></span>
+                    </div>
+                    <div class="data_content">
+                    <span>자연에서 힐링 할 수 있는 휴양림입니다!</span>
+                    </div>
+                    
+                    </div>
+                    <% end %>
+                    <% end %>
+                    
+                    </div>
+                    
+                    
+                    <%if @forestlodge_size===0%>
+                    <div class="panel-body">
+                    <div class="data_meta"></div>
+                    <div class="data_content"><span>데이터가 존재하지 않습니다!</span></div>
+                    </div>
+                    <%else %>
+                    <div class="panel-footer">
+                    <div style="text-align: center;">
+                    <% for i in 1..(@forestlodge_size/10)+1 %>
+                    <a onclick = "program_footer_clicked(this.id,'forest_lodge',<%=i%>)" style="margin-right = 2px" id="<%="forest_lodge".concat(i.to_s)%>"><%= i %></a>
+                    
+                    
+                    <%end%> 
+                        </div>
+                        </div>
+                        <%end%>
+                
+                </div>
+                
+                <div class="panel content_panel">
+                    <div class="panel-heading" style="box-shadow: -1px -1px 2px inset;background-color: #42925d;">
+                    <font style="color:white; font-weight:bold; font-size:20px">식물원</font>
+                    </div>
+                    <div id="arboretum_page">
+                    <% if @arboretum_arr!=nil 
+                    count = 0 
+                    @arboretum_arr.each do|arboretum|
+                    
+                    
+                     if count===10
+                          break
+                     
+                     end
+                     
+                     count = count + 1
+                     %>
+                    <div class="panel-body">
+                    <div class="data_title">
+                     
+                     <%= link_to arboretum.getName(), {:controller => "detail", :action => "detail_arboretum", 
+                         :name   => arboretum.getName(), :address   => arboretum.getAddress(),
+                         :size   => arboretum.getSize(), :plants_numbers  => arboretum.getPlants_numbers(),
+                         :start_date => arboretum.getStart_date(), :tel   => arboretum.getTel(),
+                         :content => arboretum.getContent(), :homepage_addr   => arboretum.getHomePageAddr(),
+                         :related_link     => arboretum.getRelatedLink()}%>
+                     <span>조회수 : 100</span>
+                    </div>
+                    <div class="data_meta">
+                      <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=arboretum.getName%></font></span>
+                      <span>장소 : <%=arboretum.getAddress%></span>
+                      <span>연락처: <%=arboretum.getTel%></span>
+                    </div>
+                    <div class="data_content">
+                      <span><%=arboretum.getContent()%></span>
+                    </div>
+                    
+                    </div>
+                    <% end %>
+                    <% end %>
+                    
+                    </div>
+                    
+                    
+                    <%if @arboretum_size===0%>
+                    <div class="panel-body">
+                    <div class="data_meta"></div>
+                    <div class="data_content"><span>데이터가 존재하지 않습니다!</span></div>
+                    </div>
+                    <%else %>
+                    <div class="panel-footer">
+                    <div style="text-align: center;">
+                    <% for i in 1..(@arboretum_size/10)+1 %>
+                     <a onclick = "program_footer_clicked(this.id,'arboretum',<%=i%>)" style="margin-right = 2px" id="<%="arboretum".concat(i.to_s)%>"><%= i %></a>
+                    
+                    
+                    <%end%> 
+                        </div>
+                        </div>
+                        <%end%>
+                
+                
+                
+                
+                </div>
+</div>
+
+

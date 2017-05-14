@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>검색화면</title>
+  
+  <!-- Latest compiled and minified CSS -->
+  <!-- 요부분이 지금 낮은 버전?의 jquery import하는 부분-->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  
+
+  <!-- 요건 boostrap css 파일들 가져다 쓰기 위한-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- jquery도 결국 화면을 웹 꾸미는 UI 프레임워크라서 가져다 쓰는 거고 요 밑에 js보이지 -->
+<!-- bootstrap도 유동적인 화면의 UI를 꾸미기 위해서 jquery를 가져다 사용하는데 밑에것이 위에것보다
+     먼저 들어오면 bootstrap이 작동하지 않음-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" />
+<script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script><!--요건
+내가 뭐 가져다 쓸라고 해놓은 라이브러리 같은거라 신경끄고-->
+  
+  <!-- 여기 바로 밑 stylesheet_link_tag는 asset에 있는 파일을 pre compile함 import한다는 개념으로 보면됨-->
+  <%= stylesheet_link_tag    'main_css', media: 'all', 'data-turbolinks-track' => true %>
+ 
+ 
+  <!-- 여기 바로 밑 javasciprt_inculde_tag는 javascript를 위해 임포터 하는 파일이라고 생각하면됨-->
+  <%= javascript_include_tag    'main_js', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+
+  
+
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

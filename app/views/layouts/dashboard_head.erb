@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+  
+  <!--jquery, javascript 인버팅-->
+  <%= stylesheet_link_tag    'dashboard_css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'dashboard_js', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+         
+          <!-- 버튼을 사용하고 싶어요ㅠ-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+     $(document).ready(function() {
+	$('#myButton2').on('click', function () {
+	  var $btn = $(this).button('complete');
+	  setTimeout(function () {
+	    $btn.button('reset');
+	  }, 2000);
+	});
+     });
+</script>
+  
+  
+  </head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
