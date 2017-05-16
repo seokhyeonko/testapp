@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -59,7 +59,7 @@ group :development do
 
   # 페이지 뷰를 깔끔하게 보이도록 하기 위해서 아래의 두 젬을 추가로 설치한다.
   gem 'bootstrap-sass'
-  gem 'simple_form'
+ 
   
   # 개발 모드에서 이메일을 보내않고 브라우저에서 미리보기한는 젬
   gem 'letter_opener', group: :development

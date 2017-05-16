@@ -79,7 +79,8 @@
 }
 
 .recomend_view{
-    margin-top: 50px
+    margin-top: 50px;
+    background-color :#f7f7f7;
 }
 
 .option_name{
@@ -169,4 +170,8 @@
 .thumnail_bord {
     border-right-width: 3px;
     border-bottom-width: 3px;
+}
+
+.recomend_say{
+    text-align: center;
 }
