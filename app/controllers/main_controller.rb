@@ -36,13 +36,15 @@ class MainController < ApplicationController
         
         count = 0
         
-        data_withoutMountainPro.each do|data|
-            if count===3
-                break
+        if data!=nil
+            data_withoutMountainPro.each do|data|
+                if count===3
+                    break
+                end
+                count+=1
+                
+                @recommend_program.push(data)
             end
-            count+=1
-            
-            @recommend_program.push(data)
         end
         
         
