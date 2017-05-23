@@ -175,7 +175,8 @@
     <div><h2 style="font-weight:bold; font-family: 'Hanna', Sans-serif ; color:#000000;">#늘솔길 추천핫딜</h2></div>
     </div>
     <br>
-      <% 
+      <%
+        if @recommend_program.size >0
         number =1
         @recommend_program.each do|program|
           
@@ -208,7 +209,9 @@
       </div>
       <%
           number+=1
-      end%>
+      end
+      end
+      %>
       
       
      
