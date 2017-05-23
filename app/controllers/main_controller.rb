@@ -36,7 +36,7 @@ class MainController < ApplicationController
         
         count = 0
         
-        if data!=nil
+        if data_withoutMountainPro!=nil
             data_withoutMountainPro.each do|data|
                 if count===3
                     break
@@ -560,13 +560,26 @@ class MainController < ApplicationController
     end
     
     def makeMountainPro_periodInfo(str,arr)
+        
+        if str.include?('~')
+            
         temp = str.split('~')
-        s_number = temp[0].slice!(0)
-        e_number = temp[1].slice!(0)
+        
+        s_str = temp[0]
+        e_str = temp[1]
+     
+        s_number = s_str[0]
+        e_number = e_str[0]
         
         
-        for i in s_number..enumber
-            arr[i] = 1
+        
+        
+        for i in s_number..e_number
+            #arr[i] = "1"
+            arr.map{|x|x == 0 ? 1 : x}
+        end
+        
+        
         end
         
         return arr
