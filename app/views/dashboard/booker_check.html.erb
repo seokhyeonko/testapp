@@ -3,7 +3,7 @@
       <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/??"><img src="longlogo-04.png" href="/??" width="131px" height="35px" alt="OP.GG Logo (탈것)" ></a>
+      <a class="navbar-brand" href="/intro_dashboard"><img src="longlogo-04.png" href="/??" width="131px" height="35px" alt="OP.GG Logo (탈것)" ></a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <form class="form-inline mt-2 mt-md-0 ml-auto">
@@ -38,83 +38,68 @@
             </li>
           </ul>
         </nav>
-
-<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-  <p>
-<%@d.each do |data|    
-                  @datas=data%>
-
-  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
- <%=@datas%>
-  </a>
-<%end%>
-</p>
-
-<% @d.each do |data| %>
-<div class="collapse" id="collapseExample">
-  <div class="card card-block">
-    <div class="month"> 
-  <ul>
-    <li class="next">&#10095;</li>
-    <li>5월 <br>
-      <span style="font-size:18px"><%=data%></span>
-    </li>
-  </ul>
-</div>
-<ul class="weekdays">
-  <li>Su</li>
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-</ul>
-
-<ul class="days"> 
-  <li><span class="lastmonth">30</span></li>
-  <li>1<br>
-  <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">4/20</a><br>
-  <label class="form-check-label"><input type="checkbox" class="form-check-input"></label></li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li><span class="disable">17</span></li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-  <div>
-   <button class="btn btn-outline-success" type="submit" style="margin-left:420px">예약확인</button>
-  </div>
-  </div>
-</div>
-<% end %>
-
-
-
+        
+  <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <p>
+      <%@program_list.each do |data|%>
+      
+        <button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="program<%=data.id%>" data-target="#program<%=data.id%>">
+        <%=data.pro_name%>
+        </button>
+      <%end%>
+    </p>
+  
+  
+  
+  
+  
+  <% @program_list.each do |data| %>
+    <div class="collapse" id="program<%=data.id%>">
+      <div class="card card-block">
+        
+        <div class="month"> 
+          <ul>
+          <li class="next">&#10095;</li>
+          <li><%=@current_year%>년 <%=@current_month%>월<br>
+          <span style="font-size:18px"><%=data.pro_name%></span>
+          </li>
+          </ul>
+        </div>
+      <ul class="weekdays">
+        <li>일</li>
+        <li>월</li>
+        <li>화</li>
+        <li>수</li>
+        <li>목</li>
+        <li>금</li>
+        <li>토</li>
+      </ul>
+      
+      <ul class="days"> 
+        <li><span class="lastmonth">30</span></li>
+        <%
+          booker_list = Booker.where(pro_name: data.pro_name)
+        %>
+        <% for i in 1..@lastday%>
+          <li><%=i%></li>
+        <% end %>
+      </ul>
+        <div>
+          <button class="btn btn-outline-success" type="submit" style="margin-left:420px">예약확인</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+  </main>
+        
+        
+        
+        
+        
+        </div>
+      </div>
+        
 
 
 
@@ -175,368 +160,47 @@
   
     </div>
   </div>
-</div>
+
+
+
+
+<!--
+<li>1<br>
+        <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">4/20</a><br>
+        <label class="form-check-label"><input type="checkbox" class="form-check-input"></label></li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span class="active">10</span></li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li><span class="disable">17</span></li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
 
 
 
 
 
 
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <!--
-    <h2>야호 숲으로가자</h2>
-    <form action="/dashboard3" method="get">
-          <div class="table-responsive">
-            <table class="table table-striped" style="margin-bottom: 0px;">
-              <thead>
-                <tr>
-                  <th>예약인원</th>
-                  <th>이름</th>
-                  <th>전화번호</th>
-                  <th>성별</th>
-                  <th>분류</th>
-                  <th>예약확인<th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>김만중</td>
-                  <td>010-9012-7040</td>
-                  <td>남</td>
-                  <td>군인</td>
-                  <td>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios1" value="확인">
-                         확인
-                      </label>
-                    </div>
-                  
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios1" id="optionsRadios2" value="거절">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td>2</td>
-                  <td>고석현</td>
-                  <td>010-7278-5445</td>
-                  <td>남</td>
-                  <td>임산부</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios1" value="확인">
-                         확인
-                      </label>
-                    </div>
-                  
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios2" value="거절">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>손지현</td>
-                  <td>010-1234-5678</td>
-                  <td>여</td>
-                  <td>손지짱</td>
-                  <td>
-  
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios1" value="확인">
-                         확인
-                      </label>
-                    </div>
-                  
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios3" id="optionsRadios2" value="거절">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios4" id="optionsRadios1" value="확인">
-                         확인
-                      </label>
-                    </div>
-                  
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios4" id="optionsRadios2" value="거절">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div>
-            <button class="btn btn-outline-success" type="submit" style="margin-left:420px">예약확인</button>
-            </div>
-            </div>
-            </form>
-          </main>
-  
-            
-            
-            
-            
-            
-            
-            
-         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-          <h2>신나는 곤충채집</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>예약인원</th>
-                  <th>이름</th>
-                  <th>전화번호</th>
-                  <th>성별</th>
-                  <th>분류</th>
-                  <th>예약확인<th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>김만중</td>
-                  <td>010-9012-7040</td>
-                  <td>남</td>
-                  <td>군인</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>고석현</td>
-                  <td>010-7278-5445</td>
-                  <td>여</td>
-                  <td>임산부</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>손지현</td>
-                  <td>010-1234-5678</td>
-                  <td>여</td>
-                  <td>손지짱</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-          </main>
-            
-            
-            
-            
-            
-        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-                <h2>클래식 태교</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>예약인원</th>
-                  <th>이름</th>
-                  <th>전화번호</th>
-                  <th>성별</th>
-                  <th>분류</th>
-                  <th>예약확인</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>김만중</td>
-                  <td>010-9012-7040</td>
-                  <td>남</td>
-                  <td>군인</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>고석현</td>
-                  <td>010-7278-5445</td>
-                  <td>여</td>
-                  <td>임산부</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>손지현</td>
-                  <td>010-1234-5678</td>
-                  <td>여</td>
-                  <td>손지짱</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td>
-                  <fieldset class="form-group">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                         확인
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                         예약 불가
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </main>
-      </div>
-    </div>
 -->

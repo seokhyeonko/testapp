@@ -9,7 +9,7 @@ body{
 
 .backgroud_upper_intro{
     padding-top: 10em; padding-bottom: 50px; text-align: center;
-    background : url("/OGA1EQ0.jpg");
+    background : url("/470.jpg");
     background-size: cover;
     background-position : center center;
 }
@@ -26,4 +26,10 @@ body{
 
 .mapheight{
     height:350px;
+}
+
+.panel-body{
+    
+    border-bottom: ridge 2px #A4A4A4;
+    
 }

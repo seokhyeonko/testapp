@@ -71,9 +71,9 @@
             </div>
             <% end
               else
-                
+                temp = @programlist
                 url = 'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q='
-                    url+= @programlist.pro_name
+                    url+= temp.pro_name
                     url+= '&output=json'
                     url = url.force_encoding('binary')
                     url=WEBrick::HTTPUtils.escape(url)
@@ -85,7 +85,7 @@
               %>
               <div class="col-6 col-sm-3 placeholder">
               <img src="<%=@main_pic%>" width="200" height="200" class="img-fluid rounded-circle" alt="">
-              <h4><%=@programlist.pro_name%></h4>
+              <h4><%=temp.pro_name%></h4>
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">자세히보기&예약승인</button>
             </div>
               

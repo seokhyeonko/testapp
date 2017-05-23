@@ -1,26 +1,5 @@
 
 
-//"facility", "facility_name", "address","management_period","tel","join_method","target"
-/*
-@name = nil
-    @state = nil
-    @lodage_classification = nil#크기가 2인 배열로 이루어짐
-    @size = nil
-    @available_people = nil
-    @enterence_fee = nil
-    @is_stay = nil
-    @major_facilities = nil
-    @address = nil #도로명 주소
-    @management = nil
-    @tel = nil
-    @homepage_add = nil
-    @latitude = nil
-    @longitude = nil
-    @data_standard_date = nil
-
-*/
-
-
 function program_footer_clicked(id,json_id,page_num,page_id) {
             
             var content_start =(page_num-1) * 10;
@@ -86,7 +65,7 @@ function program_footer_clicked(id,json_id,page_num,page_id) {
                     }
                     break;
                 case "mountain_explain":
-                    alert("숲해설");
+                   
                     alert(page_id);
                     var count = 0;
                     for(var i=content_start;i<datajson.length;i++){

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   
 
   #석현님꺼 테스트
-  get '/main' => 'main#search_view' 
+  root 'main#search_view' 
   get '/search' => 'main#search_result_view'
   get '/test' => 'main#temp'
   get '/apply_program' =>'detail#apply_program'

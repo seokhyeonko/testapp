@@ -1,3 +1,6 @@
+require 'date'
+
+
 module INSTITUTE
     ID = 'institute_id'
     PW = 'institute_pw'
@@ -47,10 +50,11 @@ class DashboardController < ApplicationController
             storedata_session(id,user.institute_name)
         end
         
-        @programlist = Proeducation.find_by_pro_institute(session[:institute_name])
+        @programlist = Proeducation.where(pro_institute: session[:institute_name])
         @count = Proeducation.where(pro_institute: session[:institute_name]).count
         
         puts @count
+        puts @programlist
         
         
         
@@ -65,15 +69,30 @@ class DashboardController < ApplicationController
     
    #예약자들 확인
    def booker_check
-        data = Proeducation.all 
         
-        @d = Array.new
+        
+        
+        data = Proeducation.all 
+        @current_year = Date.today.strftime("%Y").to_i
+        @current_month = Date.today.strftime("%m").to_i
+        @current_day = Date.today.strftime("%d").to_i
+        @lastday = Date.civil(@current_year, @current_month, -1).strftime("%d").to_i
+        
+        
+        
+        
+        @program_list = Array.new
+        @booker_list = Array.new
         data.each do|d|
             if d.pro_institute.eql?(session[:institute_name])
-                @d.push(d.pro_name)
+                @program_list.push(d)
             
             end
         end
+        
+        
+        
+        
 
 
     end 
@@ -83,6 +102,8 @@ class DashboardController < ApplicationController
     
     #프로그램마다 disable 해주기
     def check_day_program
+        
+        
         data = Proeducation.all 
         
         @d = Array.new

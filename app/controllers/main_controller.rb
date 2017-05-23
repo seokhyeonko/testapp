@@ -55,7 +55,8 @@ class MainController < ApplicationController
         targetarr = params[:target]
         categoryarr = params[:category]
         date = params[:date]
-        query = params[:query]
+        @query = params[:query]
+        query = @query
         
         target_str = ""
         category_str = ""
@@ -446,7 +447,7 @@ class MainController < ApplicationController
         @mountain_program_size = 0
         
         if @arboretum_arr !=nil
-            @mountain_program_size = @mountain_program_arr.size()
+            @arboretum_size = @arboretum_arr.size()
         end
         
         if @prenatal_arr !=nil
@@ -462,7 +463,7 @@ class MainController < ApplicationController
         end
         
         if @mountain_program_arr !=nil
-            @arboretum_size = @arboretum_arr.size()
+            @mountain_program_size =  @mountain_program_arr.size()
         end
         
         if @mountain_explain_arr !=nil

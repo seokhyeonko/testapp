@@ -9,7 +9,7 @@
 <div class="container" style="padding-top: 20px; padding-bottom: 10px;">
     <div class="row">
          <div class="col-md-2">
-                <a href ="/??"><img class ="my-logo" src="longlogo-04.png" title="탈것" alt="OP.GG Logo (탈것)" > </a>
+                <a href ="/main"><img class ="my-logo" src="longlogo-04.png" title="탈것" alt="OP.GG Logo (탈것)" > </a>
          </div>
          
     
@@ -19,7 +19,7 @@
 <div style="padding-top: 0.1em; padding-bottom: 1px; text-align: center; background-color: #1a3017;">
 </div>
 <div class="col-md-offset-1 col-md-10">
-    <form action="/search" method="GET">
+    <form action="/search" method="GET" id = "search_form">
     <div class="row search_input_after">
          <div class="row">
              <div class="btn-group col-md-10 col-md-offset-1" role="group">
@@ -27,7 +27,7 @@
               <div class="search_input" id="serach_input_box">
                   <div id="custom-search-input">
                               <div class="input-group col-md-12">
-                                  <input type="text" class=" search-query form-control input-lg" placeholder="기관명 / 위치(ex.전주시)" name="query">
+                                  <input type="text" class=" search-query form-control input-lg" placeholder="기관명 / 위치(ex.전주시)" name="query" value="<%=@query%>" id ="query_bar">
                                   <span class="input-group-btn">
                                       <button class="btn btn-lg" type="submit">
                                           <span class=" glyphicon glyphicon-search"></span>
@@ -45,11 +45,12 @@
         
 
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="btn-group col-md-8 main2_position"> 
+            
+            <div class="btn-group col-md-8 main2_position col-md-offset-1"> 
                 <button class="btn btn-primary normal_btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             상세검색
                         </button> 
+                        <!--
                         <button type="button" class="btn btn-labeled btn-default btn-sm normal_btn tag_position" style="opacity: 0.5;">
                             태그<span class="btn-label"><i class="glyphicon glyphicon-remove" style="margin-left=10px"></i></span>
                         </button>
@@ -58,14 +59,10 @@
                         </button> 
                         <button type="button" class="btn btn-labeled btn-default btn-sm normal_btn tag_position" style="opacity: 0.5;">
                             태그<span class="btn-label"><i class="glyphicon glyphicon-remove" style="margin-left=10px"></i></span>
-                        </button> 
+                        </button>
+                        -->
             </div>
-                         
-                   
-            <!--
-                <input style=" border-color: #cfdc00; " type="text" name="cities" 
-                                   value="dd" data-role="tagsinput" >dd</input>
-            -->
+         
             
         </div>  
     
@@ -233,7 +230,10 @@
                                  :period => mountain_pro.period, :target => mountain_pro.target, 
                                  :content => mountain_pro.content, :like => mountain_pro.like,
                                  :count_view => mountain_pro.count_view, :tel =>mountain_pro.tel}%>
-                             <span>조회수 : 100</span>
+                             
+                             
+                             <%  %>
+                             <span>조회수 : <%=%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_pro.pro_name%></font></span>
@@ -294,7 +294,8 @@
                                  :facility => mountain_ex.getFacility(), :facility_name => mountain_ex.getFacilityName(),
                                  :address => mountain_ex.getAddress(), :management_period => mountain_ex.getManagementPeriod(),
                                  :tel => mountain_ex.getTel(), :join_method => mountain_ex.getTarget()}%>
-                             <span>조회수 : 100</span>
+                            <% view_count = Like.find_by_pro_name(mountain_ex.getFacilityName).view_count%>
+                             <span>조회수 : <%=view_count%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_ex.getFacilityName%></font></span>
@@ -354,7 +355,8 @@
                      :village_name => eco.getName(), :address => eco.getAddress(),
                      :program_hash => eco.getAllProgram(), :village_code => eco.getVillageCode(),
                      :x => eco.getX(), :y => eco.getY()}%>
-                    <span>조회수 : 100</span>
+                    <% view_count = Like.find_by_pro_name(eco.getName()).view_count%>
+                    <span>조회수 : <%=view_count%></span>
                     </div>
                     <div class="data_meta">
                     <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=eco.getName%></font></span>
@@ -417,7 +419,7 @@
                          :entry_fee   => prenatal.getEntryFee(), :education_time_string  => prenatal.getEducationTimeString(),
                          :year   => prenatal.getYear(),:month   => prenatal.getMonth(), 
                          :day  => prenatal.getDay(), :education_date   => prenatal.getEducationDate()}%>
-                    <span>조회수 : 100</span>
+             
                     </div>
                     <div class="data_meta">
                     <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=prenatal.getEducationDate%></font></span>
@@ -483,7 +485,8 @@
                      :tel   => lodge.getTel(), :homepage_add   => lodge.getHompageAddr(),
                      :latitude   => lodge.getLatitude(), :longitude   => lodge.getLongtitude(),
                      :data_standard_date  => lodge.getDataStandardDate}%>
-                    <span>조회수 : 100</span>
+                    <% view_count = Like.find_by_pro_name(lodge.getName()).view_count%>
+                    <span>조회수 : <%=view_count%></span>
                     </div>
                     <div class="data_meta">
                     <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=lodge.getManagement%></font></span>
@@ -546,7 +549,8 @@
                          :start_date => arboretum.getStart_date(), :tel   => arboretum.getTel(),
                          :content => arboretum.getContent(), :homepage_addr   => arboretum.getHomePageAddr(),
                          :related_link     => arboretum.getRelatedLink()}%>
-                     <span>조회수 : 100</span>
+                     <% view_count = Like.find_by_pro_name(arboretum.getName()).view_count%>
+                    <span>조회수 : <%=view_count%></span>
                     </div>
                     <div class="data_meta">
                       <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=arboretum.getName%></font></span>
@@ -626,7 +630,8 @@
                                              :tel   => lodge.getTel(), :homepage_add   => lodge.getHompageAddr(),
                                              :latitude   => lodge.getLatitude(), :longitude   => lodge.getLongtitude(),
                                              :data_standard_date  => lodge.getDataStandardDate}%>
-                                         <span>조회수 : 100</span>
+                                       <% view_count = Like.find_by_pro_name(lodge.getName()).view_count%>
+                                        <span>조회수 : <%=view_count%></span>
                                      </div>
                                      <div class="data_meta">
                                           <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=lodge.getManagement%></font></span>
@@ -694,7 +699,8 @@
                     :start_date => arboretum.getStart_date(), :tel   => arboretum.getTel(),
                     :content => arboretum.getContent(), :homepage_addr   => arboretum.getHomePageAddr(),
                     :related_link     => arboretum.getRelatedLink()}%>
-                    <span>조회수 : 100</span>
+                    <% view_count = Like.find_by_pro_name(arboretum.getName()).view_count%>
+                    <span>조회수 : <%=view_count%></span>
                     </div>
                     <div class="data_meta">
                     <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=arboretum.getName%></font></span>
@@ -760,7 +766,9 @@
                              :village_name => eco.getName(), :address => eco.getAddress(),
                              :program_hash => eco.getAllProgram(), :village_code => eco.getVillageCode(),
                              :x => eco.getX(), :y => eco.getY()}%>
-                         <span>조회수 : 100</span>
+                         <% view_count = Like.find_by_pro_name(eco.getName()).view_count%>
+                        <span>조회수 : <%=view_count%></span>
+                        
                         </div>
                         <div class="data_meta">
                           <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=eco.getName%></font></span>
@@ -830,7 +838,8 @@
                                  :period => mountain_pro.period, :target => mountain_pro.target, 
                                  :content => mountain_pro.content, :like => mountain_pro.like,
                                  :count_view => mountain_pro.count_view, :tel =>mountain_pro.tel}%>
-                             <span>조회수 : 100</span>
+                              
+                                <span>조회수 : <%=%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_pro.pro_name%></font></span>
@@ -898,7 +907,7 @@
                          :entry_fee   => prenatal.getEntryFee(), :education_time_string  => prenatal.getEducationTimeString(),
                          :year   => prenatal.getYear(),:month   => prenatal.getMonth(), 
                          :day  => prenatal.getDay(), :education_date   => prenatal.getEducationDate()}%>
-                        <span>조회수 : 100</span>
+                         
                         </div>
                         <div class="data_meta">
                         <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=prenatal.getEducationDate%></font></span>
@@ -964,7 +973,8 @@
                                  :facility => mountain_ex.getFacility(), :facility_name => mountain_ex.getFacilityName(),
                                  :address => mountain_ex.getAddress(), :management_period => mountain_ex.getManagementPeriod(),
                                  :tel => mountain_ex.getTel(), :join_method => mountain_ex.getTarget()}%>
-                             <span>조회수 : 100</span>
+                        <% view_count = Like.find_by_pro_name(mountain_ex.getFacilityName).view_count%>
+                        <span>조회수 : <%=view_count%></span
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_ex.getFacilityName%></font></span>

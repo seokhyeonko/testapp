@@ -18,17 +18,17 @@
         		        -->
         		        <a href ="/??"><img class = "intro_logo" src = "/logo-03.png"></a>
         		    </div>
-		    </h1>
-		        
+		        </h1>
 		    </div>
-		     <form action="/search" method="GET">
+		    
+		    <form action="/search" method="GET" id="search_form">
 		     <div class="row">
 		         <div class="btn-group" role="group">
                     
                       <div class="col-md-9 col-md-offset-2 search_input" id="serach_input_box">
                           <div id="custom-search-input" class="col-md-11">
                                       <div class="input-group col-md-12">
-                                          <input type="text" class=" search-query form-control input-lg" placeholder="기관명 / 위치(ex.전주시)" name="query">
+                                          <input id ="query_bar" type="text" class=" search-query form-control input-lg" placeholder="기관명 / 위치(ex.전주시)" name="query">
                                           <span class="input-group-btn">
                                               <button class="btn btn-lg" type="submit">
                                                   <span class=" glyphicon glyphicon-search"></span>
@@ -36,7 +36,7 @@
                                           </span>
                                       </div>
                           </div>
-                          <button class="btn btn-success col-md-1 search_input" type="submit" >  검 색 </button> 
+              
                          
                       </div>
                 </div>
@@ -49,7 +49,7 @@
                 <button class="btn btn-primary normal_btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="float:left; margin-left:20px">
                                           상세검색
                 </button>
-                <div class="collapse col-md-10 col-md-offset-1 detail_view" id="collapseExample" style="z-index:1;position: absolute;">
+                <div class="collapse col-md-11 col-md-offset-1 detail_view" id="collapseExample" style="z-index:1;position: absolute;">
                   <div class="card">
                     
                     <div class="row detail_content col-md-12">
@@ -171,7 +171,9 @@
     <div class="row">
     
     <div class="row recomend_view">
-    <div class="recomend_say col-ls-3"><h3 ><span style="color:#ffffff;background-color:#5fef8f">  &nbsp;&nbsp;&nbsp;고민할 필요없이 추천해 줄께요&nbsp;&nbsp;&nbsp;   </span></h3></div>
+    <div class="recomend_say col-ls-3"><h4><span style="font-weight:bold; color:#ffffff; background-color:#25c10d;  font-family: 'Hanna', Sans-serif ;">  &nbsp;&nbsp;&nbsp;고민할 필요없이 추천해 줄께요&nbsp;&nbsp;&nbsp;   </span></h4></div>
+    <div><h2 style="font-weight:bold; font-family: 'Hanna', Sans-serif ; color:#000000;">#늘솔길 추천핫딜</h2></div>
+    </div>
     <br>
       <% 
         number =1
@@ -196,9 +198,10 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail thumnail_bord">
           <div class = "color-swatch brand-primary col-md-1" style="background-color:#90b236;"><span class="recomend_nubmer_font"><%=number%></span></div>
-          <img class = "col-md-12" src="<%=main_pic%>" alt="..." style="height:200px; width:100%;" >
-          <div class="caption">
-            <h3><%=program.pro_name%></h3>
+          <div class = "color-swatch brand-primary col-md-1" style="background-color:#90b236;"></div>
+          <div><img class = "col-md-12" src="<%=main_pic%>" alt="..." style="border-style:solid; border-color: #25c10d; height:200px; width:100%;" ></div>
+          <div class="row caption" style="text-align:center">
+            <h4 style ="font-weight:bold; color:#000000;">#<%=program.pro_name%></h4>
             
           </div>
         </div>
