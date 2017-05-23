@@ -1,11 +1,5 @@
 class LoginController < ApplicationController
-        layout 'login_head'
-    def login
-
-     else
-        
-        
-end
+    layout 'login_head'
     
     def write
        
@@ -13,5 +7,5 @@ end
         @password_regist = params[:password_regist]
         @name_regist = params[:username_regist]
     
-end
+    end
 end
