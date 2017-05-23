@@ -38,7 +38,7 @@
                     <span style = "color : #FFF">  산림교육  </span>
                   </div>
                   <div class = "col-md-2 col-md-offset-6">
-                    <!--<span class=" glyphicon glyphicon-send pcitogram" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></span>-->
+                   <span class=" glyphicon glyphicon-send pcitogram" data-toggle="modal" data-target="#exampleModal" ></span>
                     <span class=" glyphicon glyphicon-heart-empty pcitogram" id="like" onclick="like_click('<%=@program_name%>','mountain_program')"></span>
                   </div>
                   
@@ -116,7 +116,7 @@
                     </div>
                     
                 </div>
-                <div class = "row">
+                 <div class = "row">
                     <div class="col-md-offset-4 col-md-4"></div>
                     <div class="col-md-offset-5 col-md-5">
                           
@@ -134,12 +134,12 @@
                                 </ul> 
                               </div>
                             
-                                <form>
+                                
                                     <div class="cont_text_inputs">
-                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이름" name="apply_name" />
-                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="핸드폰번호" name="apply_phone" />
-                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이메일" name="apply_email" />
-                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="신청인원" name="apply_number" />
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이름" name="apply_name" id="name_apply"/>
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="핸드폰번호" name="apply_phone" id="phone_apply"/>
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="이메일" name="apply_email" id="email_apply"/>
+                                    <input type="text" class="input_form_sign d_block active_inp" placeholder="신청인원" name="apply_number" id="num_apply"/>
                                      
                                      
                                      
@@ -147,12 +147,12 @@
               
                                         <div class="form-group col-md-5">
                                               <div class="input-group date">
-                                                <input type="text" class="form-control" name="date" placeholder="날짜"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                                <input type="text" class="form-control" name="date" placeholder="날짜" id="date_apply"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                               </div>
                                         </div>
                                          <div class="col-md-7 cont_btn">
-                                             <button class="btn_sign">신청</button>
-                                             <button class="btn_sign">취소</button>
+                                             <button class="btn_sign" id="btndialog">신청</button>
+                                             <button class="btn_sign" id="btncancel" data-dismiss="modal">취소</button>
                                               
                                          </div>
                                     
@@ -168,7 +168,7 @@
 
                                   
                               
-                                </form>
+                                
                              
                               <div class="modal-footer">
                               </div>

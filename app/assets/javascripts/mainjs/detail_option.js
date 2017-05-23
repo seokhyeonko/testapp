@@ -66,7 +66,6 @@ function program_footer_clicked(id,json_id,page_num,page_id) {
                     break;
                 case "mountain_explain":
                    
-                    alert(page_id);
                     var count = 0;
                     for(var i=content_start;i<datajson.length;i++){
                      

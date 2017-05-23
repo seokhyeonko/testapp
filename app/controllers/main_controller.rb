@@ -251,16 +251,20 @@ class MainController < ApplicationController
                 
                 #디비에서 조회해야함 노인 및 다른 데이터도 있어서 우선 다보여주게 만듬
                 if category_str.include?('산림교육')
-                    @mountain_program_arr = Proeducation.all
-                    #mpro_data = Proeducation.all
-=begin
+                    @mountain_program_arr = Array.new
+                    mpro_data = Proeducation.all
+
                     mpro_data.each do|data|
                         temp_target = data.target.to_s
-                        if target_str.include?(temp_target)
+                        target_temp_arr = target_str.split(',')
+                        target_temp_arr.each do|target|
+                            if temp_target.include?(target)
+                                @mountain_program_arr.push(data)
+                            end
                         end
                        
                     end
-=end                     
+                    
                 end
                 
                 if category_str.include?('숲태교')
@@ -433,7 +437,14 @@ class MainController < ApplicationController
                 @arboretum_arr = arboretum_ob.getArboretum_withAdress(location_str[0])
                 @ecovilage_arr = ecovilage_ob.getEcoVillageData_with_location(location_str[0])
                 #디비에서 조회해야함
-                @mountain_program_arr = Proeducation.all
+                 @mountain_program_arr = Array.new
+                program_data = Proeducation.all
+                program_data.each do|program|
+                    if program.address.include?(location_str[0])
+                        @mountain_program_arr.push(program)
+                    end
+                end
+               
                 @prenatal_arr = prenatal_ob.getPrenatalEducationWith_location(location_str[0])
                 @mountain_explain_arr = mountain_explain_ob.getMountainExpalinData_withLocation(location_str[0])
             end

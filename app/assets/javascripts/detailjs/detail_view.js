@@ -127,7 +127,7 @@ function like_click(program_name,category) {
         var pre_data = parseInt(document.getElementById("like_count").innerHTML);
         document.getElementById("like_count").textContent= pre_data + 1;
         if(category=='mountain_program'){
-            alert("아작스 시작하기 전");
+         
            $.ajax({
               type:"GET",
               url:"/program_likeup",

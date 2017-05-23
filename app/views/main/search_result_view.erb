@@ -1,3 +1,22 @@
+
+<!--
+<script language="javascript" type="text/javascript">
+$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+ $(window).on('load', function(){
+  setTimeout(removeLoader,1); //wait for page load PLUS two seconds.
+});
+function removeLoader(){
+    $( "#loadingDiv" ).hide(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight 
+  });  
+}
+</script>
+-->
+
+
+
+
 <ul class="nav nav-tabs">
              <li role="presentation" class="active" style="font-weight:bold;"><a href="#">일반사용자</a></li>
               <li role="presentation"><a href="" data-toggle="modal" data-target="#myModal" >기업사용자</a></li>
@@ -9,7 +28,7 @@
 <div class="container" style="padding-top: 20px; padding-bottom: 10px;">
     <div class="row">
          <div class="col-md-2">
-                <a href ="/main"><img class ="my-logo" src="longlogo-04.png" title="탈것" alt="OP.GG Logo (탈것)" > </a>
+                <a href ="/"><img class ="my-logo" src="longlogo-04.png" title="탈것" alt="OP.GG Logo (탈것)" > </a>
          </div>
          
     
@@ -230,10 +249,9 @@
                                  :period => mountain_pro.period, :target => mountain_pro.target, 
                                  :content => mountain_pro.content, :like => mountain_pro.like,
                                  :count_view => mountain_pro.count_view, :tel =>mountain_pro.tel}%>
-                             
-                             
-                             <%  %>
-                             <span>조회수 : <%=%></span>
+                
+                          
+                             <span>조회수 : <%=mountain_pro.count_view%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_pro.pro_name%></font></span>
@@ -839,7 +857,7 @@
                                  :content => mountain_pro.content, :like => mountain_pro.like,
                                  :count_view => mountain_pro.count_view, :tel =>mountain_pro.tel}%>
                               
-                                <span>조회수 : <%=%></span>
+                                <span>조회수 : <%=mountain_pro.count_view%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_pro.pro_name%></font></span>
@@ -974,7 +992,7 @@
                                  :address => mountain_ex.getAddress(), :management_period => mountain_ex.getManagementPeriod(),
                                  :tel => mountain_ex.getTel(), :join_method => mountain_ex.getTarget()}%>
                         <% view_count = Like.find_by_pro_name(mountain_ex.getFacilityName).view_count%>
-                        <span>조회수 : <%=view_count%></span
+                        <span>조회수 : <%=view_count%></span>
                          </div>
                          <div class="data_meta">
                               <span>기관 : <font style="font-family:sans-serif,'돋음',Courier;"><%=mountain_ex.getFacilityName%></font></span>

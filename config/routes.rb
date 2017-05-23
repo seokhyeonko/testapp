@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
   
   
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  #root 'main#search_result_view' ##두번째 화면(검색한 뒤에) 
-  #root 'main#search_view' ## 첫 화면
   
   
-  
-  #root 'detail#detail_program' ##손지짱 꺼임  
+  #root 'detail#detail_program' 
   #root 'apply#apply_form'
   
-  #손지짱 손지짱 손지짱 손지짱 바보 똥개 멍충이
+
   #get '/detail_program' => 'detail#detail_program'
   get '/detail_explanation' => 'detail#explanation'
   get '/detail_echo_village' => 'detail#echo_village'

@@ -253,6 +253,13 @@ class DetailController < ApplicationController
         
         
         detail_program(@program_name)
+        
+        current_program = Proeducation.find_by_pro_name(@program_name)
+        @view_count = current_program.count_view+1
+        current_program.count_view = current_program.count_view+1
+        current_program.save
+        
+        @like = current_program.like
     end
     
     
@@ -279,14 +286,15 @@ class DetailController < ApplicationController
     def program_likeup
          puts "좋업"
         pro_name = params[:p_name]
-        pro = ProEduction.find_by_pro_name(pro_name)
+        puts pro_name
+        pro = Proeducation.find_by_pro_name(pro_name)
         pro.like = pro.like+1
         pro.save
     end
     
     def program_likedown
         pro_name = params[:p_name]
-        pro = ProEduction.find_by_pro_name(pro_name)
+        pro = Proeducation.find_by_pro_name(pro_name)
         pro.like = pro.like-1
         pro.save
         

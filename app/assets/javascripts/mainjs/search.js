@@ -1,5 +1,5 @@
 $(function() {
-    
+   
     
     
     $('#search_form').on('submit', function () {
