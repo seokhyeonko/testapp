@@ -204,10 +204,12 @@ class MainController < ApplicationController
                 if category_str.include?('산림교육')
                     @mountain_program_arr = Array.new
                     mpro_data = Proeducation.all
-                   
+                   puts location_str[0]
                     mpro_data.each do|data|
                             puts data.address
-                            if data.address.to_s.include?(location_str[0])
+                            
+                            if data.address.include?(location_str[0])
+                                   
                                     #3월~5월,11월~12월 정확히 입력되어져야함
                                     mp = [0,0,0,0,0,0,0,0,0,0,0,0,0]   
                                    
@@ -217,6 +219,7 @@ class MainController < ApplicationController
                                     end
                                     
                                     if mp[month]===1
+                                        
                                         temp_target = data.target.to_s
                                         target_temp_arr = target_str.split(',')
                                         target_temp_arr.each do|target|
@@ -587,24 +590,27 @@ class MainController < ApplicationController
     def makeMountainPro_periodInfo(str,arr)
         
         if str.include?('~')
+          
+            temp = str.split('~')
             
-        temp = str.split('~')
+            s_str = temp[0]
+            e_str = temp[1]
+         
+            s_number = s_str[0].to_i
+            e_number = e_str[0].to_i
+            
+            
+            
+            
+            for i in s_number..e_number
+                arr[i] = 1
+                
+            end
+            
+            puts arr
         
-        s_str = temp[0]
-        e_str = temp[1]
-     
-        s_number = s_str[0]
-        e_number = e_str[0]
-        
-        
-        
-        
-        for i in s_number..e_number
-            #arr[i] = "1"
-            arr.map{|x|x == 0 ? 1 : x}
-        end
-        
-        
+        else
+            
         end
         
         return arr
