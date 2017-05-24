@@ -221,6 +221,7 @@ class MainController < ApplicationController
                                     if mp[month]===1
                                         
                                         temp_target = data.target.to_s
+                                        puts temp_target
                                         target_temp_arr = target_str.split(',')
                                         target_temp_arr.each do|target|
                                             puts target
@@ -599,15 +600,17 @@ class MainController < ApplicationController
             s_number = s_str[0].to_i
             e_number = e_str[0].to_i
             
+            if !e_str[1].eql?('월')
+                e_number = e_number*10 + e_str[1].to_i
+            end
             
             
-            
+          
             for i in s_number..e_number
                 arr[i] = 1
                 
             end
-            
-            puts arr
+         
         
         else
             
