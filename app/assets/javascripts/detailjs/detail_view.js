@@ -47,7 +47,7 @@ geocoder.addr2coord(address, function(status, result) {
         map.setCenter(coords);
     }else{
         
-        alert("실패");
+        
         var infowindow = new daum.maps.InfoWindow({zIndex:1});
         // 장소 검색 객체를 생성합니다
     var ps = new daum.maps.services.Places(); 
