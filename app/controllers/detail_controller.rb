@@ -18,11 +18,11 @@ class DetailController < ApplicationController
        
         url = 'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q='
         url += name
-        url += '&output=json&result=3'
+        url += '&output=json&result=10'
         
         count = 0
         #'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q=다음카카오&output=json'
-        while count<3
+        while count<11
         
         puts '들어옴?'
         url = url.force_encoding('binary')
@@ -40,7 +40,7 @@ class DetailController < ApplicationController
         
         puts res.code
         if res.code.to_i <400
-            count=4
+            count=11
         else
            count+=1 
         end
