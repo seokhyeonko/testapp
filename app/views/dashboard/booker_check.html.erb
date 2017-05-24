@@ -81,7 +81,8 @@
           booker_list = Booker.where(pro_name: data.pro_name)
         %>
         <% for i in 1..@lastday%>
-          <li><%=i%></li>
+          <li><%=i%><% if i===25 %> <a href='#mymodal' data-toggle='modal' data-target='#mymodal '>예약확인</a> <% end %></li>
+          
         <% end %>
       </ul>
         <div>
@@ -107,7 +108,7 @@
 
 
 <!-- Large modal구현-->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id ="mymodal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <!--모달 내용-->
