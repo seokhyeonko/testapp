@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require_directory ./mainjs
-//= require moment
 //= require bootstrap-datetimepicker
 
 

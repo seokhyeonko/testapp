@@ -1,5 +1,7 @@
 require ('open-uri')        # 웹 페이지 open 에 필요.
 require ('json') 
+require "net/https"
+require "uri"
 
 
 class DetailController < ApplicationController
@@ -10,26 +12,40 @@ class DetailController < ApplicationController
     # 각 필요한 css나 js파일 넣으라고 보통 head에 포함을 시키거든 이게 그림으로 하면 쉬운데
     def detail_program(name)
 
+        puts '사진만들기!!'
         ###사진 출력한다.
                # JSON을 Hash로 변환하는데 필요.
-    
+       
         url = 'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q='
         url += name
-        url += '&output=json&result=1'
+        url += '&output=json&result=3'
         
+        count = 0
         #'https://apis.daum.net/search/image?apikey=e39c413113cbc67c3c832186c1480624&q=다음카카오&output=json'
+        while count<3
         
+        puts '들어옴?'
         url = url.force_encoding('binary')
         url=WEBrick::HTTPUtils.escape(url)
         
         image = JSON.parse(open(url).read)
         #puts image
-
-        @main_pic = image["channel"]["item"][0]["image"]
-        #@main_pic = 'http://t1.daumcdn.net/news/201602/22/SpoChosun/20160222103948794crve.jpg'
         
-             
+        puts 'main 픽 찍어야함'
+        @main_pic = image["channel"]["item"][count]["image"]
+        puts @main_pic
         
+ 
+        res = Net::HTTP.get_response(URI.parse(@main_pic))
+        
+        puts res.code
+        if res.code.to_i <400
+            count=4
+        else
+           count+=1 
+        end
+        
+        end
         
         
     end
@@ -81,7 +97,7 @@ class DetailController < ApplicationController
         @keyword = @exp_facility_name
         
         
-        
+        puts '사진 호출전'
         detail_program(@exp_facility)
         
         likedata = Like.find_by_pro_name(@exp_facility_name)
