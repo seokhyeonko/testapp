@@ -430,6 +430,9 @@ class MainController < ApplicationController
                     mpro_data = Proeducation.all
 
                     mpro_data.each do|data|
+                        
+                        if data.address.to_s.include?(location_str[0])
+                                #3월~5월,11월~12월 정확히 입력되어져야함
                                 mp = [0,0,0,0,0,0,0,0,0,0,0,0,0]   
                                
                                 period_str = (data.period).to_s.split(',')
@@ -440,6 +443,7 @@ class MainController < ApplicationController
                                 if mp[month]===1
                                     @mountain_program_arr.push(data)
                                 end
+                        end
                     end
                 
                 
