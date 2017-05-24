@@ -114,6 +114,8 @@ class MainController < ApplicationController
             end
         end
         
+        @target_check = target_str
+        
         targetarr_temp = target_str.split(',')
         
         #{"category"=>["forestlodge", "arboretum", "ecovilage", "mountainpro", "prenataledu", "mountain_explain"]
@@ -137,6 +139,9 @@ class MainController < ApplicationController
             end
         end
         
+        @category_check = category_str
+        
+        
         if date.eql?("")
             is_date = false
         else
@@ -144,6 +149,7 @@ class MainController < ApplicationController
             year = temp[0].to_i
             month = temp[1].to_i
             day = temp[2].to_i
+            @date_check = date
         end
         
         if query.eql?("")

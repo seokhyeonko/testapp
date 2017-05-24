@@ -95,31 +95,31 @@ function removeLoader(){
             <div class="row detail_content">
               <label class="option_name">대상</label>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="baby_chbox" class="styled" type="checkbox" name="target[]" value="baby_chbox">
+                        <input id="baby_chbox" class="styled" type="checkbox" name="target[]" value="baby_chbox" <% if @target_check.include?('유아')%> checked <%end%>>
                         <label for="baby_chbox">
                             유아
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="Prenatal_chbox" class="styled" type="checkbox" name="target[]" value="prenatal">
+                        <input id="Prenatal_chbox" class="styled" type="checkbox" name="target[]" value="prenatal" <% if @target_check.include?('임산부')%> checked <%end%>>
                         <label for="Prenatal_chbox">
                             임산부
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="elementry_chbox" class="styled" type="checkbox" name="target[]" value="elementry">
+                        <input id="elementry_chbox" class="styled" type="checkbox" name="target[]" value="elementry" <% if @target_check.include?('초등학생')%> checked <%end%>>
                         <label for="elementry_chbox">
                             초등학생
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="teenager_chbox" class="styled" type="checkbox" name="target[]" value="teenager">
+                        <input id="teenager_chbox" class="styled" type="checkbox" name="target[]" value="teenager" <% if @target_check.include?('중,고등학생')%> checked <%end%>>
                         <label for="teenager_chbox">
                             중,고등학생
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="normal_chbox" class="styled" type="checkbox" name="target[]" value="normal">
+                        <input id="normal_chbox" class="styled" type="checkbox" name="target[]" value="normal" <% if @target_check.include?('일반')%> checked <%end%>>
                         <label for="normal_chbox">
                             일반
                         </label>
@@ -135,42 +135,42 @@ function removeLoader(){
             <div class="row detail_content">
               <label class="option_name">카테고리</label>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="forestlodge_chbox" class="styled" type="checkbox" name="category[]" value="forestlodge">
+                        <input id="forestlodge_chbox" class="styled" type="checkbox" name="category[]" value="forestlodge" <% if @category_check.include?('휴양림')%> checked <%end%>>
                         <label for="forestlodge_chbox">
                             휴양림
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="arboretum_chbox" class="styled" type="checkbox" name="category[]" value="arboretum">
+                        <input id="arboretum_chbox" class="styled" type="checkbox" name="category[]" value="arboretum" <% if @category_check.include?('식목원')%> checked <%end%>>
                         <label for="arboretum_chbox">
                             수목원
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="Ecovilage_chbox" class="styled" type="checkbox" name="category[]" value="ecovilage">
+                        <input id="Ecovilage_chbox" class="styled" type="checkbox" name="category[]" value="ecovilage" <% if @category_check.include?('산촌마을')%> checked <%end%>>
                         <label for="Ecovilage_chbox">
                             산촌생태마을
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="mountainpro_chbox" class="styled" type="checkbox" name="category[]" value="mountainpro">
+                        <input id="mountainpro_chbox" class="styled" type="checkbox" name="category[]" value="mountainpro" <% if @category_check.include?('산림교육')%> checked <%end%>>
                         <label for="mountainpro_chbox">
                             산림교육
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="prenataledu_chbox" class="styled" type="checkbox" name="category[]" value="prenataledu">
+                        <input id="prenataledu_chbox" class="styled" type="checkbox" name="category[]" value="prenataledu" <% if @category_check.include?('숲태교')%> checked <%end%>>
                         <label for="prenataledu_chbox">
                             숲 태교
                         </label>
                 </div>
                 <div class="checkbox checkbox-primary checkbox-inline">
-                        <input id="mountain_explain_chbox" class="styled" type="checkbox" name="category[]" value="mountain_explain">
+                        <input id="mountain_explain_chbox" class="styled" type="checkbox" name="category[]" value="mountain_explain" <% if @category_check.include?('숲해설')%> checked <%end%>>
                         <label for="mountain_explain_chbox">
                             숲 해설
                         </label>
                 </div>
-                
+      
               
             </div>
             
@@ -180,7 +180,7 @@ function removeLoader(){
             
                 <div id="sandbox-container" class="form-group" style="float:left; width:200px">
                     <div class="input-group date">
-                  <input type="text" class="form-control" name="date"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                  <input type="text" class="form-control" name="date" <%if !@date_check.eql?("")%> value=<%=@date_check%><%end%>><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                 </div>
           
