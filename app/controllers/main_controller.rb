@@ -186,7 +186,7 @@ class MainController < ApplicationController
         #위치만 들어왔다고 가정하고 검색
         if is_query
             if is_target && is_category && is_date
-                
+            
                 if category_str.include?('휴양림')
                     @forestlodge_arr = forestlodge_ob.getForestLodageData_Location(location_str[0])
                 end
@@ -204,23 +204,30 @@ class MainController < ApplicationController
                 if category_str.include?('산림교육')
                     @mountain_program_arr = Array.new
                     mpro_data = Proeducation.all
-
+                   
                     mpro_data.each do|data|
-                        
-                        if data.address.to_s.include?(location_str[0])
-                                #3월~5월,11월~12월 정확히 입력되어져야함
-                                mp = [0,0,0,0,0,0,0,0,0,0,0,0,0]   
-                               
-                                period_str = (data.period).to_s.split(',')
-                                period_str.each do|period|
-                                    mp = makeMountainPro_periodInfo(period,mp)
-                                end
-                                
-                                if mp[month]===1
-                                    @mountain_program_arr.push(data)
-                                end
+                            puts data.address
+                            if data.address.to_s.include?(location_str[0])
+                                    #3월~5월,11월~12월 정확히 입력되어져야함
+                                    mp = [0,0,0,0,0,0,0,0,0,0,0,0,0]   
+                                   
+                                    period_str = (data.period).to_s.split(',')
+                                    period_str.each do|period|
+                                        mp = makeMountainPro_periodInfo(period,mp)
+                                    end
+                                    
+                                    if mp[month]===1
+                                        temp_target = data.target.to_s
+                                        target_temp_arr = target_str.split(',')
+                                        target_temp_arr.each do|target|
+                                            puts target
+                                            if temp_target.include?(target)
+                                                @mountain_program_arr.push(data)
+                                            end
+                                        end
+                                    end
+                            end
                         end
-                    end
       
                     
                 end
@@ -320,7 +327,14 @@ class MainController < ApplicationController
                                     end
                                     
                                     if mp[month]===1
-                                        @mountain_program_arr.push(data)
+                                        temp_target = data.target.to_s
+                                        target_temp_arr = target_str.split(',')
+                                        target_temp_arr.each do|target|
+                                            puts target
+                                            if temp_target.include?(target)
+                                                @mountain_program_arr.push(data)
+                                            end
+                                        end
                                     end
                             end
                         end
